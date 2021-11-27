@@ -15,7 +15,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Inertia::render('Login');
 });
 
 Route::get('/home', function () {
@@ -23,5 +23,5 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', function () {
-    return Inertia::render('Login', ['user' => 'VITL']);
+    return Inertia::render('Login');
 });
