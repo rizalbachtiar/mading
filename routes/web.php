@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return Inertia::render('Home', ['user' => 'VITL']);
 });
+
+Route::get('/login', function () {
+    return Inertia::render('Login', ['user' => 'VITL']);
+});
