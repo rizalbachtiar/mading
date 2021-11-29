@@ -39,7 +39,7 @@
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('/images/panduan.png')">
                     <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Kartini</div>
                   </div>
               </div>
