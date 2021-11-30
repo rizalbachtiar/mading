@@ -27,40 +27,40 @@
           Topics
       </h1>
       <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
-          <div class="flex flex-nowrap mx-10 text-2xl">
+          <div class="flex flex-nowrap mx-10 text-xl">
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Lingkungan</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/lingkungan_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Lingkungan</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Kemerdekaan</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/kemerdekaan_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Kemerdekaan</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('/images/panduan.png')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Kartini</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/kartini_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Kartini</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Guru</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/guru_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Guru</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Ibu</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/ibu_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Ibu</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Pahlawan</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/pahlawan_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Pahlawan</div>
                   </div>
               </div>
               <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover" style="background-image: url('https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500')">
-                    <div class="text-gray-200 font-semibold my-5 mx-4 font-mono">Hari Santri</div>
+                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/santri_potrait.png')">
+                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Santri</div>
                   </div>
               </div>
           </div>
