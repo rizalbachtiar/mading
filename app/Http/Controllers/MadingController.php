@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mading;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MadingController extends Controller
 {
@@ -14,7 +15,9 @@ class MadingController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('MadingIndex', [
+            'madings' => Mading::get()
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class MadingController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('MadingCreate');
     }
 
     /**
@@ -35,7 +38,8 @@ class MadingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mading::create($request->all());
+        return redirect()->route('madings.index');
     }
 
     /**
