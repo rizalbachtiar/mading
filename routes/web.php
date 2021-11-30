@@ -25,3 +25,7 @@ Route::get('/home', function () {
 Route::get('/login', function () {
     return Inertia::render('Login');
 });
+
+Route::get('/detailmading', function () {
+    return Inertia::render('DetailMading');
+});
