@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MadingController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -29,3 +30,5 @@ Route::get('/login', function () {
 Route::get('/detailmading', function () {
     return Inertia::render('DetailMading');
 });
+
+Route::resource('madings', MadingController::class);

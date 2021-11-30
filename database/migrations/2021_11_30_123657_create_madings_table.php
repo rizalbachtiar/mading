@@ -16,6 +16,7 @@ class CreateMadingsTable extends Migration
         Schema::create('madings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('color')->nullable();
             $table->text('photo')->nullable();
             $table->text('photo_detail')->nullable();
             $table->text('salam_redaksi')->nullable();
