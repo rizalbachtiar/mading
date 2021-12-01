@@ -61,7 +61,9 @@ class MadingController extends Controller
      */
     public function edit(Mading $mading)
     {
-        //
+        return Inertia::render('MadingEdit', [
+            'mading' => $mading
+        ]);
     }
 
     /**
@@ -73,7 +75,9 @@ class MadingController extends Controller
      */
     public function update(Request $request, Mading $mading)
     {
-        //
+        $mading->fill($request->all());
+        $mading->save();
+        return redirect()->route('madings.index');
     }
 
     /**
