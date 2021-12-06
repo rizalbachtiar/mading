@@ -1,6 +1,6 @@
 <template>
 	<div style="background-color: #d3d1e9;">
-		<img class="w-full" src="/images/kategori/guru_lanscape.png">
+		<img class="mx-auto" src="/images/kategori/guru_lanscape.png">
 		<div class="mt-10 px-5 md:px-14 pb-10 space-y-10">
 			<div class="flex space-x-4">
 				<div class="bg-white w-6/12 rounded-xl bg-opacity-50 shadow-xl backdrop-filter backdrop-blur px-5 py-3">

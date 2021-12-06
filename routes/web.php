@@ -20,7 +20,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return Inertia::render('Home', ['user' => 'VITL']);
+    return Inertia::render('Home', [
+        'madings' => [
+            asset('/images/kategori/guru_lanscape.png'),
+            asset('/images/kategori/guru_lanscape.png')   
+        ]
+    ]);
 });
 
 Route::get('/login', function () {

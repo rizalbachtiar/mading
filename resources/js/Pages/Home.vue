@@ -28,41 +28,15 @@
       </h1>
       <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
           <div class="flex flex-nowrap mx-10 text-xl">
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/lingkungan_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Lingkungan</div>
+              <div v-for="mading in madings" class="inline-block px-3">
+                <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                  <div class="h-72">
+                    <img class="object-cover h-full w-full" :src="mading">
                   </div>
+                  <div class="w-full h-full rounded-b-2xl text-gray-700 font-semibold font-mono text-center"><span class="inline-block align-middle">Hari Guru</span></div>
+                </div>
               </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/kemerdekaan_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Kemerdekaan</div>
-                  </div>
-              </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/kartini_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Kartini</div>
-                  </div>
-              </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/guru_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Guru</div>
-                  </div>
-              </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/ibu_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Ibu</div>
-                  </div>
-              </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/pahlawan_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Pahlawan</div>
-                  </div>
-              </div>
-              <div class="inline-block px-3">
-                  <div class="w-60 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out bg-cover flex flex-col justify-end items-center" style="background-image: url('/images/kategori/santri_potrait.png')">
-                    <div class="bg-white w-full rounded-b-2xl text-gray-700 mx-4 font-semibold font-mono text-center">Hari Santri</div>
-                  </div>
-              </div>
+              
           </div>
       </div>
   </div>
@@ -75,6 +49,11 @@
 
 <script>
 export default {
-  props: ['user'],
+  props: ['madings'],
+  // setup() {
+  //   const photos = [
+
+  //   ]
+  // }
 }
 </script>
