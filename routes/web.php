@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\MadingController;
+use App\Http\Controllers\MagazineController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -37,3 +38,4 @@ Route::get('/detailmading', function () {
 });
 
 Route::resource('madings', MadingController::class);
+Route::resource('magazines', MagazineController::class);
