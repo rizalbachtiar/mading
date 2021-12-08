@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Magazine;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Http\Exceptions\PostTooLargeException;
 
 class MagazineController extends Controller
 {
@@ -15,6 +16,7 @@ class MagazineController extends Controller
      */
     public function index()
     {
+        dd(Magazine::get());
         return Inertia::render('MagazineIndex', [
             'magazines' => Magazine::get()
         ]);
@@ -39,12 +41,14 @@ class MagazineController extends Controller
     public function store(Request $request)
     {
         $image = NULL;
-        if ($request->hasFile('image'))
+        if ($request->hasFile('image_url'))
         {
-            $file = $request->file('image');
+            $file = $request->file('image_url');
             $image = $request->name . '-' . time() . '.' . $file->getClientOriginalExtension();
+            // dd($image);
             $file->storeAs('public/magazines', $image);
         }
+        // dd($request->all());
         Magazine::create([
             'name' => $request->name,
             'image_url' => $image
