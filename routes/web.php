@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MadingController;
 use App\Http\Controllers\MagazineController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -20,14 +21,7 @@ Route::get('/', function () {
     return Inertia::render('Login');
 });
 
-Route::get('/home', function () {
-    return Inertia::render('Home', [
-        'madings' => [
-            asset('/images/kategori/guru_lanscape.png'),
-            asset('/images/kategori/guru_lanscape.png')   
-        ]
-    ]);
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 Route::get('/login', function () {
     return Inertia::render('Login');

@@ -16,7 +16,7 @@ class MagazineController extends Controller
      */
     public function index()
     {
-        dd(Magazine::get());
+        // dd(Magazine::get());
         return Inertia::render('MagazineIndex', [
             'magazines' => Magazine::get()
         ]);
