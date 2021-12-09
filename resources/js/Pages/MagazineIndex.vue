@@ -4,8 +4,8 @@
 		<Link class="bg-green-500 py-2 px-5 rounded-md text-white hover:bg-green-700 transition duration-500 ease-in-out" :href="route('magazines.create')">
 			Create
 		</Link>
-		<div class="grid grid-cols-4 gap-4 mt-10 justify-items-center">
-			<div v-for="magazine in magazines" class="inline-block">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-5 justify-items-center">
+			<Link v-for="magazine in magazines" class="inline-block mt-5" :href="route('magazines.edit', { magazine })">
 				<div class="w-56 h-80 rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
 					<div class="h-72">
 						<img class="object-cover h-full w-full rounded-t-2xl" :src="'../storage/magazines/' + magazine.image_url" :alt="magazine.name">
@@ -14,7 +14,7 @@
 						<span class="inline-block align-middle">{{ magazine.name }}</span>
 					</div>
 				</div>
-			</div>
+			</Link>
 		</div>
 	</div>
 </template>

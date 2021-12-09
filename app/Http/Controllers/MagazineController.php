@@ -16,7 +16,6 @@ class MagazineController extends Controller
      */
     public function index()
     {
-        // dd(Magazine::get());
         return Inertia::render('MagazineIndex', [
             'magazines' => Magazine::get()
         ]);
@@ -45,10 +44,8 @@ class MagazineController extends Controller
         {
             $file = $request->file('image_url');
             $image = $request->name . '-' . time() . '.' . $file->getClientOriginalExtension();
-            // dd($image);
             $file->storeAs('public/magazines', $image);
         }
-        // dd($request->all());
         Magazine::create([
             'name' => $request->name,
             'image_url' => $image
@@ -89,7 +86,20 @@ class MagazineController extends Controller
      */
     public function update(Request $request, Magazine $magazine)
     {
+        $image = $magazine->image_url;
+        dd($request->all());
+        if ($request->hasFile('image_url'))
+        {
+            dd('masuk IF');
+            $file = $request->file('image_url');
+            File::delete(storage_path('app/public/magazines/' . $image));
+            $image = $request->name . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/magazines', $image);
+
+        }
+        dd('tidak Masuk');
         $magazine->fill($request->all());
+        // dd($magazine);
         $magazine->save();
         return redirect()->route('magazines.index');
     }
