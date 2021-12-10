@@ -6,6 +6,7 @@ use App\Models\Magazine;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Http\Exceptions\PostTooLargeException;
+use File;
 
 class MagazineController extends Controller
 {
@@ -87,19 +88,18 @@ class MagazineController extends Controller
     public function update(Request $request, Magazine $magazine)
     {
         $image = $magazine->image_url;
-        dd($request->all());
         if ($request->hasFile('image_url'))
         {
-            dd('masuk IF');
             $file = $request->file('image_url');
             File::delete(storage_path('app/public/magazines/' . $image));
             $image = $request->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/magazines', $image);
 
         }
-        dd('tidak Masuk');
-        $magazine->fill($request->all());
-        // dd($magazine);
+        $magazine->fill([
+            'name' => $request->name,
+            'image_url' => $image
+        ]);
         $magazine->save();
         return redirect()->route('magazines.index');
     }

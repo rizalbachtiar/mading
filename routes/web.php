@@ -33,3 +33,4 @@ Route::get('/detailmading', function () {
 
 Route::resource('madings', MadingController::class);
 Route::resource('magazines', MagazineController::class);
+Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
