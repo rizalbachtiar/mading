@@ -11,10 +11,10 @@
 
   <div class="flex flex-col items-center mb-10">
     <div class="bg-white flex md:flex-row flex-col justify-center px-10 py-3 w-2/4 rounded-lg -my-16 md:-my-8 shadow-xl md:space-x-24 space-y-5 md:space-y-0">
-      <div class="flex flex-row items-center space-x-2">
+      <Link class="flex flex-row items-center space-x-2" :href="route('magazines.index')">
         <img class="w-10 h-10" src="/images/panduan.png">
         <h1>Panduan</h1>
-      </div>
+      </Link>
       <div class="flex flex-row items-center space-x-2">
         <img class="w-10 h-10" src="/images/materi.png">
         <h1>Materi</h1>
@@ -48,8 +48,13 @@
 </template>
 
 <script>
+import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
   props: ['magazines'],
+  components: {
+    Link,
+  }
   // setup() {
   //   const photos = [
 

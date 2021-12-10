@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\MadingController;
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -31,6 +31,7 @@ Route::get('/detailmading', function () {
     return Inertia::render('DetailMading');
 });
 
-Route::resource('madings', MadingController::class);
 Route::resource('magazines', MagazineController::class);
 Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
+Route::resource('categories', CategoryController::class);
+Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
