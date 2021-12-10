@@ -1,6 +1,6 @@
 <template>
-	<div class="w-screen h-screen bg-gradient-to-r from-blue-400 to-green-500">
-		<div class="mt-4 lg:pt-8 py-8 lg:py-16 px-6 md:px-16 lg:px-24 prose lg:prose-lg mx-auto max-w-2xl lg:max-w-3xl">
+	<div class="absolute w-full h-screen bg-gradient-to-r from-blue-400 to-green-500 overflow-y-scroll">
+		<div class="lg:pt-8 py-8 lg:py-16 px-6 md:px-16 lg:px-24 prose lg:prose-lg mx-auto max-w-2xl lg:max-w-3xl">
 			<div class="bg-white shadow px-10 py-5 rounded-md space-y-8 bg-opacity-50 backdrop-filter backdrop-blur">
 				<div class="text-gray-600 text-2xl font-semibold text-center">Edit Magazine</div>
 				<form @submit.prevent="form.post(route('magazines.update-attachment', { magazine }))">
