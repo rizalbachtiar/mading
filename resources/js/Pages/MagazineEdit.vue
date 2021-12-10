@@ -9,13 +9,13 @@
 							<label for="name" class="text-md font-medium text-gray-700">
 								Title
 							</label>
-							<input class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" type="text" name="name" v-model="form.name">
+							<input class="w-full px-4 py-2 bg-gray-200 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" type="text" name="name" v-model="form.name">
 						</div>
 						<div class="space-y-1">
 							<label for="image_url" class="text-md font-medium text-gray-700">
 								Image
 							</label>
-							<input class="w-full px-4 py-2 bg-white border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" type="file" name="image_url" @change="previewImage" @input="form.image_url = $event.target.files[0]">
+							<input class="w-full px-4 py-2 bg-gray-200 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" type="file" name="image_url" @change="previewImage" @input="form.image_url = $event.target.files[0]">
 							<img v-if="url" :src="url" class="w-6/12 rounded">
 						</div>
 						<button class="bg-blue-500 px-6 py-2 rounded-md text-white hover:bg-blue-700">
