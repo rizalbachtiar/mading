@@ -35,9 +35,9 @@
 								</tr>
 								<tr class="text-gray-700 border border-gray-400">
 									<td class="px-4 py-1 text-center">
-										<button @click="openModal()" class="text-green-700 hover:text-green-500">
+										<a @click="openModal()" class="text-green-700 hover:text-green-500 cursor-pointer">
 											Create Content
-										</button>
+										</a>
 									</td>
 								</tr>
 							</tbody>
@@ -126,7 +126,8 @@
 				const file = e.target.files[0];
 		    	this.url = URL.createObjectURL(file);
 			},
-			openModal() {
+			openModal(page) {
+				console.log(this.magazine.id),
 				this.isOpen = true;
 			},
 			closeModal() {
