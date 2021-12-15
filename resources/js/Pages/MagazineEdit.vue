@@ -63,11 +63,11 @@
                         <div class="">
                             <div class="mb-4">
                                 <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
-                                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" v-model="formModal.name">
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="name" v-model="formModal.name">
                             </div>
                             <div class="mb-4">
                                 <label for="content" class="block text-gray-700 text-sm font-bold mb-2">Address</label>
-                                <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="content" v-model="formModal.content">
+                                <ckeditor class="bg-blue-500" :editor="editor" v-model="formModal.content"></ckeditor>
                             </div>
                         </div>
                     </div>
@@ -96,6 +96,7 @@
 <script>
 	import { useForm } from '@inertiajs/inertia-vue3'
 	import LayoutApp from '../Layouts/App.vue'
+	import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 	export default {
 		layout: LayoutApp,
@@ -112,12 +113,13 @@
 		},
 		data() {
 			return {
+				editor: ClassicEditor,
 				editMode: false,
                 isOpen: false,
 				url: null,
 				formModal: {
                     name: null,
-                    content: null,
+                    content: 'ckeditor 5 for laravel and vuejs',
                 }
 			}
 		},
