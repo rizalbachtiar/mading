@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Magazine;
+use App\Models\Page;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Http\Exceptions\PostTooLargeException;
@@ -113,5 +114,15 @@ class MagazineController extends Controller
     public function destroy(Magazine $magazine)
     {
         //
+    }
+
+    public function savePage(Request $request)
+    {
+        Page::create([
+            'name' => $request->name,
+            'content' => $request->content,
+            'magazine_id' => $request->magazine_id
+        ]);
+        return redirect()->back();
     }
 }
