@@ -131,4 +131,10 @@ class MagazineController extends Controller
         $page->save();
         return redirect()->back();
     }
+
+    public function destroyPage(Page $page)
+    {
+        $page->delete();
+        return redirect()->back();
+    }
 }

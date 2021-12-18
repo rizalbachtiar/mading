@@ -26,7 +26,7 @@
 								<tr v-for="page in pages" class="text-gray-700 border border-gray-400">
 									<td class="px-4 py-1 flex items-center justify-between">
 										<a @click="editPage(page)" class="cursor-pointer hover:text-blue-600 transition">{{ page.title }}</a>
-										<button class="" @click.prevent="deletePost(`${category.id}`)">
+										<button class="" @click.prevent="deletePage(`${page.id}`)">
 											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600 hover:text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 											</svg>
@@ -156,7 +156,7 @@
 
 			savePage() 
 			{
-				Inertia.post('/magazines/create-page/', this.formModal)
+				Inertia.post('/magazines-page/create-page/', this.formModal)
 				this.closeModal();
 			},
 
@@ -169,8 +169,13 @@
 
 			updatePage()
 			{
-				Inertia.post(`/magazines/${this.formModal.id}/update-page`, this.formModal)
+				Inertia.post(`/magazines-page/${this.formModal.id}/update-page`, this.formModal)
 				this.closeModal();
+			},
+
+			deletePage(id)
+			{
+				Inertia.delete(`/magazines-page/${id}`)
 			}
 		}
 	}
