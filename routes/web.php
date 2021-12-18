@@ -33,8 +33,9 @@ Route::get('/detailmading', function () {
 
 Route::resource('magazines', MagazineController::class);
 Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
-Route::post('/magazines/create-page',[MagazineController::class, 'savePage'])->name('magazines.create-page');
-Route::post('/magazines/{page}/update-page',[MagazineController::class, 'updatePage'])->name('magazines.update-page');
+Route::post('/magazines-page/create-page',[MagazineController::class, 'savePage'])->name('magazines.create-page');
+Route::post('/magazines-page/{page}/update-page',[MagazineController::class, 'updatePage'])->name('magazines.update-page');
+Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'])->name('magazines.delete-page');
 
 Route::resource('categories', CategoryController::class);
 Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
