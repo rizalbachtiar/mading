@@ -25,7 +25,7 @@
 							<tbody>
 								<tr v-for="page in pages" class="text-gray-700 border border-gray-400">
 									<td class="px-4 py-1 flex items-center justify-between">
-										{{ page.title }}
+										<a @click="editPage(page)" class="cursor-pointer hover:text-blue-600 transition">{{ page.title }}</a>
 										<button class="" @click.prevent="deletePost(`${category.id}`)">
 											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600 hover:text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -50,6 +50,7 @@
 			</form>
 		</div>
 	</div>
+
 	<!-- MODAL TAMBAH & EDIT PRODUK AKAN DITEMPATKAN DISINI -->
     <div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400" v-if="isOpen">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -74,12 +75,12 @@
                     </div>
                     <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                            <button type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" v-show="!editMode" @click="save">
+                            <button type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" v-show="!editMode" @click="savePage">
                                 Save
                             </button>
                         </span>
                         <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                            <button type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" v-show="editMode" @click="update">
+                            <button type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5" v-show="editMode" @click="updatePage">
                                 Update
                             </button>
                         </span>
@@ -127,30 +128,49 @@
 			}
 		},
 		methods: {
-			previewImage (e) {
+			previewImage (e)
+			{
 				const file = e.target.files[0];
 		    	this.url = URL.createObjectURL(file);
 			},
-			openModal(page) {
+
+			openModal(page) 
+			{
 				this.isOpen = true;
 			},
-			closeModal() {
+
+			closeModal() 
+			{
 				this.isOpen = false;
                 this.reset();
                 this.editMode = false;
 			},
-			reset() {
+
+			reset() 
+			{
 				this.formModal = {
 					name: null,
                     content: null,
 				}
 			},
-			save() {
-				Inertia.post('/magazines/create-pages/', this.formModal)
+
+			savePage() 
+			{
+				Inertia.post('/magazines/create-page/', this.formModal)
 				this.closeModal();
 			},
-			update() {
-				//
+
+			editPage(data)
+			{
+				this.formModal = Object.assign({}, data);
+				this.editMode = true;
+                this.openModal();
+			},
+
+			updatePage()
+			{
+				Inertia.post(`/magazines/${this.formModal.id}/update-page`, this.formModal)
+				this.closeModal();
 			}
 		}
 	}
