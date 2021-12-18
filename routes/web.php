@@ -33,5 +33,6 @@ Route::get('/detailmading', function () {
 
 Route::resource('magazines', MagazineController::class);
 Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
+Route::post('/magazines/create-pages',[MagazineController::class, 'savePage'])->name('magazines.create-pages');
 Route::resource('categories', CategoryController::class);
 Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');

@@ -75,7 +75,8 @@ class MagazineController extends Controller
     public function edit(Magazine $magazine)
     {
         return Inertia::render('MagazineEdit', [
-            'magazine' => $magazine
+            'magazine' => $magazine,
+            'pages' => Page::where('magazine_id', $magazine->id)->get()
         ]);
     }
 
@@ -118,11 +119,8 @@ class MagazineController extends Controller
 
     public function savePage(Request $request)
     {
-        Page::create([
-            'name' => $request->name,
-            'content' => $request->content,
-            'magazine_id' => $request->magazine_id
-        ]);
-        return redirect()->back();
+        // dd($request->all());
+        Page::create($request->all());
+        return redirect()->route('magazines.edit', $request->magazine_id);
     }
 }
