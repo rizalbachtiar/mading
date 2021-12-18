@@ -29,12 +29,14 @@
       <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
           <div class="flex flex-nowrap mx-10 text-xl">
               <div v-for="magazine in magazines" class="inline-block px-3">
-                <div class="w-56 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
-                  <div class="h-72">
-                    <img class="object-cover h-full w-full" :src="'../storage/magazines/' + magazine.image_url">
+                <Link :href="route('magazines.edit', { magazine })">
+                  <div class="w-56 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
+                    <div class="h-72">
+                      <img class="object-cover h-full w-full" :src="'../storage/magazines/' + magazine.image_url">
+                    </div>
+                    <div class="w-full h-full rounded-b-2xl text-gray-700 font-semibold text-center"><span class="inline-block align-middle">{{ magazine.name }}</span></div>
                   </div>
-                  <div class="w-full h-full rounded-b-2xl text-gray-700 font-semibold font-mono text-center"><span class="inline-block align-middle">Hari Guru</span></div>
-                </div>
+                </Link>
               </div>
               
           </div>
