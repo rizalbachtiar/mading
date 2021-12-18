@@ -23,9 +23,9 @@
 						</label>
 						<table class="w-full">
 							<tbody>
-								<tr class="text-gray-700 border border-gray-400">
+								<tr v-for="page in pages" class="text-gray-700 border border-gray-400">
 									<td class="px-4 py-1 flex items-center justify-between">
-										Cerpen
+										{{ page.title }}
 										<button class="" @click.prevent="deletePost(`${category.id}`)">
 											<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600 hover:text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -57,13 +57,14 @@
                 <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
-            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
                 <form>
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="">
+                                <input type="hidden" id="magazine_id" v-model="formModal.magazine_id">
                             <div class="mb-4">
-                                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
-                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="name" v-model="formModal.name">
+                                <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                                <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="title" v-model="formModal.title">
                             </div>
                             <div class="mb-4">
                                 <label for="content" class="block text-gray-700 text-sm font-bold mb-2">Address</label>
@@ -95,12 +96,13 @@
 </template>
 <script>
 	import { useForm } from '@inertiajs/inertia-vue3'
+	import { Inertia } from '@inertiajs/inertia'
 	import LayoutApp from '../Layouts/App.vue'
-	import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
+	import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 	export default {
 		layout: LayoutApp,
-		props: ['magazine'],
+		props: ['magazine', 'pages'],
 		setup(props) {
 			const form = useForm({
 				name: props.magazine.name,
@@ -118,8 +120,9 @@
                 isOpen: false,
 				url: null,
 				formModal: {
-                    name: null,
-                    content: 'ckeditor 5 for laravel and vuejs',
+					magazine_id: this.magazine.id,
+                    title: null,
+                    content: 'Apa',
                 }
 			}
 		},
@@ -129,7 +132,6 @@
 		    	this.url = URL.createObjectURL(file);
 			},
 			openModal(page) {
-				console.log(this.magazine.id),
 				this.isOpen = true;
 			},
 			closeModal() {
@@ -144,7 +146,8 @@
 				}
 			},
 			save() {
-				//
+				Inertia.post('/magazines/create-pages/', this.formModal)
+				this.closeModal();
 			},
 			update() {
 				//
