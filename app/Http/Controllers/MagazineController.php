@@ -121,6 +121,14 @@ class MagazineController extends Controller
     {
         // dd($request->all());
         Page::create($request->all());
-        return redirect()->route('magazines.edit', $request->magazine_id);
+        // return redirect()->route('magazines.edit', $request->magazine_id);
+        return redirect()->back();
+    }
+
+    public function updatePage(Request $request, Page $page)
+    {
+        $page->fill($request->all());
+        $page->save();
+        return redirect()->back();
     }
 }
