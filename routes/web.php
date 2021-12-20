@@ -39,3 +39,6 @@ Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'
 
 Route::resource('categories', CategoryController::class);
 Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

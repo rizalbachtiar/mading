@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mading;
-use App\Models\Magazine;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-        return Inertia::render('Home', [
+         return Inertia::render('Home', [
             'magazines' => Magazine::get()
         ]);
     }
