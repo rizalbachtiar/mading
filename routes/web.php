@@ -5,6 +5,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\LoginController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,7 @@ Route::get('/', function () {
     return Inertia::render('Login');
 });
 
+Route::post('/login',[LoginController::class, 'authenticate'])->name('login');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 Route::get('/login', function () {
