@@ -53,7 +53,7 @@
 import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
-  props: ['magazines'],
+  props: ['magazines', 'categories'],
   components: {
     Link,
   }
