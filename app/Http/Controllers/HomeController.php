@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mading;
 use App\Models\Magazine;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +12,8 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Home', [
-            'magazines' => Magazine::get()
+            'magazines' => Magazine::get(),
+            'categories' => Category::get()
         ]);
     }
 }
