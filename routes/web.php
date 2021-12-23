@@ -43,3 +43,4 @@ Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'
 
 Route::resource('categories', CategoryController::class);
 Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
+Route::get('/detail-magazine/{magazine}',[HomeController::class, 'detailMagazine'])->name('home.detail-magazine');
