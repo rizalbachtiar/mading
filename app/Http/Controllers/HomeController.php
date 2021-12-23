@@ -16,4 +16,11 @@ class HomeController extends Controller
             'categories' => Category::get()
         ]);
     }
+
+    public function detailMagazine(Magazine $magazine)
+    {
+        return Inertia::render('DetailMagazine', [
+            'magazine' => $magazine
+        ]);
+    }
 }
