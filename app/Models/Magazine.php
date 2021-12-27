@@ -11,7 +11,7 @@ class Magazine extends Model
     use HasFactory;
     protected $guarded = [];
 
-    public function comments()
+    public function pages()
     {
         return $this->hasMany(Page::class);
     }

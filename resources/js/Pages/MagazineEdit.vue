@@ -149,7 +149,7 @@
 			reset() 
 			{
 				this.formModal = {
-					name: null,
+					title: null,
                     content: null,
 				}
 			},
