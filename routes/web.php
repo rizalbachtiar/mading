@@ -3,6 +3,7 @@
 use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AttachmentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\LoginController;
@@ -44,3 +45,5 @@ Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'
 Route::resource('categories', CategoryController::class);
 Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
 Route::get('/detail-magazine/{magazine}',[HomeController::class, 'detailMagazine'])->name('home.detail-magazine');
+
+Route::resource('attachments', AttachmentController::class);
