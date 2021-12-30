@@ -27,6 +27,7 @@ Route::get('/', function () {
 
 Route::post('/login',[LoginController::class, 'authenticate'])->name('login');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/logout', [LoginController::class, 'getLogout'])->name('logout');
 
 Route::get('/login', function () {
     return Inertia::render('Login');
