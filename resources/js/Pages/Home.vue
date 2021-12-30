@@ -1,6 +1,6 @@
 <template>
   <div class="w-full pt-28 pb-28 px-10 bg-cover bg-center space-y-10" style="background-image:url('/images/education.jpg')">
-    
+
     <div class="w-1/1 md:w-1/3 bg-white rounded-3xl shadow-xl p-5 bg-opacity-10 backdrop-filter backdrop-blur space-y-5">
       <div class="text-3xl md:text-5xl text-center font-bold">
         Wellcome to Mading Digital Madrasah Ibtidaiyah
@@ -19,6 +19,13 @@
         <img class="w-10 h-10" src="/images/materi.png">
         <h1>Materi</h1>
       </div>
+       <div>
+      <ul class="nav navbar-nav">
+
+          <li><a :href="route('logout')" @click="logout">Logout</a></li>
+
+        </ul>
+    </div>
     </div>
   </div>
 
@@ -38,7 +45,7 @@
                   </div>
                 </Link>
               </div>
-              
+
           </div>
       </div>
   </div>
@@ -52,11 +59,26 @@
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
 
+
 export default {
   props: ['magazines', 'categories'],
   components: {
     Link,
-  }
+  },
+   methods: {
+
+    logout:function() {
+              axios.post('logout').then(response => {
+                  if (response.status === 302 || 401) {
+                    console.log('logout')
+                  }
+                  else {
+                    // throw error and go to catch block
+                  }
+                }).catch(error => {
+                })
+             }
+           }
   // setup() {
   //   const photos = [
 

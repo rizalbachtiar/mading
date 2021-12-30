@@ -64,11 +64,10 @@
                         aria-orientation="vertical"
                         aria-labelledby="user-menu"
                       >
-                        <a
-                          href="#"
-                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          role="menuitem"
-                        >Sign out</a>
+
+               <form @submit.prevent="form.post(route('logout'))">
+                <button>logout</button>
+              </form>
                       </div>
                     </div>
                   </transition>
@@ -165,6 +164,7 @@
 
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
+import { useForm } from '@inertiajs/inertia-vue3'
 
 export default {
   components: {
@@ -180,5 +180,6 @@ export default {
       this.isOpen = !this.isOpen
     }
   }
+
 }
 </script>
