@@ -38,7 +38,17 @@ class AttachmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = NULL;
+        if ($request->hasFile('image_url'))
+        {
+            $file = $request->file('image_url');
+            $image = str_random(5) . '-' . time() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/attachments', $image);
+        }
+        Attachment::create([
+            'image_url' => $image
+        ]);
+        return redirect()->back();
     }
 
     /**
