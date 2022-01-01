@@ -19,7 +19,6 @@ class HomeController extends Controller
 
     public function detailMagazine(Magazine $magazine)
     {
-        // dd($magazine->pages);
         return Inertia::render('DetailMagazine', [
             'magazine' => $magazine,
             'pages' => $magazine->pages
