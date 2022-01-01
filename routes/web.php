@@ -21,30 +21,31 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Login');
-});
-
-Route::post('/login',[LoginController::class, 'authenticate'])->name('login');
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::get('/logout', [LoginController::class, 'getLogout'])->name('logout');
-
 Route::get('/login', function () {
     return Inertia::render('Login');
+})->name('login');
+
+Route::post('/auth-login',[LoginController::class, 'authenticate'])->name('auth-login');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', function () {
+        return Inertia::render('Home');
+    });
+    Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+    Route::get('/logout', [LoginController::class, 'getLogout'])->name('logout');
+    Route::get('/detailmading', function () {
+        return Inertia::render('DetailMading');
+    });
+
+    Route::resource('magazines', MagazineController::class);
+    Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
+    Route::post('/magazines-page/create-page',[MagazineController::class, 'savePage'])->name('magazines.create-page');
+    Route::post('/magazines-page/{page}/update-page',[MagazineController::class, 'updatePage'])->name('magazines.update-page');
+    Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'])->name('magazines.delete-page');
+
+    Route::resource('categories', CategoryController::class);
+    Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
+    Route::get('/detail-magazine/{magazine}',[HomeController::class, 'detailMagazine'])->name('home.detail-magazine');
+
+    Route::resource('attachments', AttachmentController::class);
 });
-
-Route::get('/detailmading', function () {
-    return Inertia::render('DetailMading');
-});
-
-Route::resource('magazines', MagazineController::class);
-Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
-Route::post('/magazines-page/create-page',[MagazineController::class, 'savePage'])->name('magazines.create-page');
-Route::post('/magazines-page/{page}/update-page',[MagazineController::class, 'updatePage'])->name('magazines.update-page');
-Route::delete('/magazines-page/{page}',[MagazineController::class, 'destroyPage'])->name('magazines.delete-page');
-
-Route::resource('categories', CategoryController::class);
-Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
-Route::get('/detail-magazine/{magazine}',[HomeController::class, 'detailMagazine'])->name('home.detail-magazine');
-
-Route::resource('attachments', AttachmentController::class);
