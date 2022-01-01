@@ -8,7 +8,7 @@
             <h1 class="text-3xl font-bold text-gray-900">LOGIN</h1>
           </div>
           <div>
-            <form @submit.prevent="form.post(route('login'))">
+            <form @submit.prevent="form.post(route('auth-login'))">
               <div class="flex flex-col w-full px-3 mb-5">
                 <label for="" class="font-semibold px-1">Username</label>
                 <input v-model="form.email" class="px-2 py-2 rounded-xl border-2 border-gray-200 outline-none focus:border-indigo-500" type="text" name="username" placeholder="Username">
