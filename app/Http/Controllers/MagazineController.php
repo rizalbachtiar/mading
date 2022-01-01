@@ -119,9 +119,7 @@ class MagazineController extends Controller
 
     public function savePage(Request $request)
     {
-        // dd($request->all());
         Page::create($request->all());
-        // return redirect()->route('magazines.edit', $request->magazine_id);
         return redirect()->back();
     }
 
