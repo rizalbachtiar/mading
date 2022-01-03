@@ -13,7 +13,8 @@ class HomeController extends Controller
     {
         return Inertia::render('Home', [
             'magazines' => Magazine::get(),
-            'categories' => Category::get()
+            'categories' => Category::get(),
+            'user' => auth()->user()->role,
         ]);
     }
 

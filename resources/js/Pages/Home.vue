@@ -1,5 +1,15 @@
 <template>
-  <div class="w-full pt-28 pb-28 px-10 bg-cover bg-center space-y-10" style="background-image:url('/images/education.jpg')">
+  <div class="w-full pt-6 pb-28 px-10 bg-cover bg-center space-y-10" style="background-image:url('/images/education.jpg')">
+    <div class="flex justify-end space-x-2">
+        <Link v-if="user == 'admin'" class="py-2 px-4 bg-blue-500" :href="route('magazines.index')">
+            Master
+        </Link>
+        <button class="bg-blue-500 text-white p-2 rounded-xl shadow hover:bg-blue-600 transition" @click="logout">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+        </button>
+    </div>
 
     <div class="w-1/1 md:w-1/3 bg-white rounded-3xl shadow-xl p-5 bg-opacity-10 backdrop-filter backdrop-blur space-y-5">
       <div class="text-3xl md:text-5xl text-center font-bold">
@@ -20,11 +30,11 @@
         <h1>Materi</h1>
       </div>
        <div>
-      <ul class="nav navbar-nav">
+      <!-- <ul class="nav navbar-nav">
 
           <li><a :href="route('logout')" @click="logout">Logout</a></li>
 
-        </ul>
+        </ul> -->
     </div>
     </div>
   </div>
@@ -61,7 +71,7 @@ import { Link } from '@inertiajs/inertia-vue3'
 
 
 export default {
-  props: ['magazines', 'categories'],
+  props: ['magazines', 'categories', 'user'],
   components: {
     Link,
   },
