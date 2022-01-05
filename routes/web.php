@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth'], function () {
         return Inertia::render('Home');
     });
     Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-    Route::get('/logout', [LoginController::class, 'getLogout'])->name('logout');
+    Route::post('/logout', [LoginController::class, 'getLogout'])->name('logout');
     Route::get('/detailmading', function () {
         return Inertia::render('DetailMading');
     });
