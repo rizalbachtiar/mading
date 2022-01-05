@@ -27,6 +27,7 @@ class LoginController extends Controller
     }
     public function getLogout(Request $request)
     {
+        // dd($request);
         Session::flush();
         return redirect()->route('login')->with('alert','kamu sudah logout');
     }
