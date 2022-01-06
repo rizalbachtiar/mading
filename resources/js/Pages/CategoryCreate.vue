@@ -1,7 +1,7 @@
 <template>
 	<div class="lg:pt-8 py-8 lg:py-16 px-6 md:px-16 lg:px-24 prose lg:prose-lg mx-auto max-w-2xl lg:max-w-3xl">
 		<div class="bg-white shadow-xl px-10 py-5 rounded-md space-y-8">
-			<div class="text-gray-600 text-2xl font-semibold text-center">Create Magazine</div>
+			<div class="text-gray-600 text-2xl font-semibold text-center">Create Category</div>
 			<form @submit.prevent="form.post(route('categories.store'))">
 				<div class="space-y-4">
 					<div class="space-y-1">

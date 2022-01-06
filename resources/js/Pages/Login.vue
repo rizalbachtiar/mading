@@ -19,7 +19,7 @@
               </div>
               <div class="flex -mx-3 pt-5">
                   <div class="w-full px-3 mb-5">
-                      <button class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-600 text-white rounded-full px-3 py-3 font-semibold text-gray-200 hover:text-gray-300 shadow-xl">LOGIN</button>
+                      <button class="block w-full max-w-xs mx-auto bg-blue-500 hover:bg-blue-600 rounded-full px-3 py-3 font-semibold text-gray-200 hover:text-gray-300 shadow-xl">LOGIN</button>
                   </div>
               </div>
             </form>

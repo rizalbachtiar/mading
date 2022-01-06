@@ -1,10 +1,10 @@
 <template>
-	<div class="bg-gradient-to-r from-blue-500 to-green-400">
+	<div class="h-screen w-screen bg-cover overflow-auto" style="background-image:url('/images/bg-magazine.jpg')">
         <div class="flex flex-col max-w-6xl mx-auto space-y-2 pt-5">
-            <div class="text-gray-200 text-3xl font-bold text-center">{{ magazine.name }}</div>
+            <div class="text-gray-700 text-3xl font-bold text-center">{{ magazine.name }}</div>
             <div class="flex space-x-2">
                 <div class="w-2/12 rounded-md px-3 py-3 shadow bg-white bg-opacity-30 backdrop-filter backdrop-blur space-y-2">
-                    <div class="text-center text-xl">Judul</div>
+                    <div class="text-center text-xl font-bold">Judul</div>
                     <ul>
                         <li v-for="page in pages"><a class="hover:text-blue-600 transition" href="#" v-on:click="detailContent(page)">{{ page.title }}</a></li>
                     </ul>
@@ -13,7 +13,7 @@
                     <img class="object-cover w-8/12 rounded" :src="'../storage/magazines/' + magazine.image_url">
                 </div>
                 <div class="w-4/12 rounded-md px-4 py-3 shadow space-y-2 bg-white bg-opacity-30 backdrop-filter backdrop-blur">
-                    <div class="text-center text-xl">{{ title }}</div>
+                    <div class="text-center text-xl font-bold">{{ title }}</div>
                     <div class="text-justify" v-html="content"></div>
                 </div>
             </div>
@@ -31,12 +31,10 @@
         </div>
             </div>
         </div>
-        <div class="py-2 text-center text-xs text-gray-200 mt-5">
+        <div class="py-2 text-center text-xs text-gray-700 mt-5">
             Copyright © Shohib Ace
         </div>
     </div>
-
-	<!-- footer -->
 
 </template>
 <script>
@@ -49,8 +47,8 @@ export default {
   },
   data() {
   	return {
-  		title: "Judul",
-  		content: "Konten"
+  		title: "Kontent",
+  		content: ""
   	}
   },
   methods:{
