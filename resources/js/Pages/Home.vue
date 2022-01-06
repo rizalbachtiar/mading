@@ -21,14 +21,14 @@
 
   <div class="flex flex-col items-center mb-10">
     <div class="bg-white flex md:flex-row flex-col justify-center px-10 py-3 w-2/4 rounded-lg -my-16 md:-my-8 shadow-xl md:space-x-24 space-y-5 md:space-y-0">
-      <Link class="flex flex-row items-center space-x-2" :href="route('magazines.index')">
-        <img class="w-10 h-10" src="/images/panduan.png">
-        <h1>Panduan</h1>
+      <Link v-for="category in categories" v-bind:key="category.id" class="flex flex-row items-center space-x-2" :href="route('categories.show', {category})">
+        <img class="w-10 h-10" :src="'../storage/categories/' + category.image_url">
+        <h1>{{ category.name }}</h1>
       </Link>
-      <div class="flex flex-row items-center space-x-2">
+      <!-- <div class="flex flex-row items-center space-x-2">
         <img class="w-10 h-10" src="/images/materi.png">
         <h1>Materi</h1>
-      </div>
+      </div> -->
     </div>
   </div>
 
@@ -38,7 +38,7 @@
       </h1>
       <div class="flex overflow-x-scroll pb-10 hide-scroll-bar">
           <div class="flex flex-nowrap mx-10 text-xl">
-              <div v-for="magazine in magazines" class="inline-block px-3">
+              <div v-for="magazine in magazines" v-bind:key="magazine.id" class="inline-block px-3">
                 <Link :href="route('home.detail-magazine', { magazine })">
                   <div class="w-56 h-80 max-w-xs overflow-hidden rounded-2xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300 ease-in-out">
                     <div class="h-72">

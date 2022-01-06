@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use File;
 
 class CategoryController extends Controller
 {
@@ -63,7 +64,9 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return Inertia::render('DetailCategory', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -90,17 +93,18 @@ class CategoryController extends Controller
     {
         $image = $category->image_url;
 
-        if ($request->hasFile('image_url')) 
+        if ($request->hasFile('image_url'))
         {
             $file = $request->file('image_url');
             File::delete(storage_path('app/public/categories/' . $image));
             $image = $request->name . '-' . time() . '.' . $file->getClientOriginalExtension();
             $file->storeAs('public/categories', $image);
         }
-
+        // dd($request->content);
         $category->fill([
             'name' => $request->name,
-            'image_url' => $image
+            'image_url' => $image,
+            'content' => $request->content
         ]);
         $category->save();
 

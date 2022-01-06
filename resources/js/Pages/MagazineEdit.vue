@@ -102,7 +102,6 @@
                                 <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="title" v-model="formModal.title">
                             </div>
                             <div class="mb-4">
-                                <label for="content" class="block text-gray-700 text-sm font-bold mb-2">Address</label>
                                 <ckeditor class="bg-blue-500" :editor="editor" v-model="formModal.content"></ckeditor>
                             </div>
                         </div>
@@ -225,19 +224,19 @@
 		    	this.urlGalery = URL.createObjectURL(file);
 			},
 
-			openModal(page) 
+			openModal(page)
 			{
 				this.isOpen = true;
 			},
 
-			closeModal() 
+			closeModal()
 			{
 				this.isOpen = false;
                 this.reset();
                 this.editMode = false;
 			},
 
-			reset() 
+			reset()
 			{
 				this.formModal = {
 					title: null,
@@ -245,7 +244,7 @@
 				}
 			},
 
-			savePage() 
+			savePage()
 			{
 				Inertia.post('/magazines-page/create-page/', this.formModal)
 				this.closeModal();
@@ -269,24 +268,24 @@
 				Inertia.delete(`/magazines-page/${id}`)
 			},
 
-			changeTab(id) 
+			changeTab(id)
 			{
 				this.tabs = id
 			},
 
-			openGalery(page) 
+			openGalery(page)
 			{
 				this.galeryOpen = true
 			},
 
-			closeGalery() 
+			closeGalery()
 			{
 				this.galeryOpen = false;
                 this.resetGalery();
                 this.galeryEdit = false;
 			},
 
-			resetGalery() 
+			resetGalery()
 			{
 				this.urlGalery = null
 				this.formGalery = {
