@@ -6,11 +6,11 @@
           <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
               <div class="flex-shrink-0">
-                <img
-                  class="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-400.svg"
-                  alt="Workflow logo"
-                >
+                <Link class="bg-indigo-500 py-2 rounded-md text-gray-100 hover:shadow-md hover:bg-indigo-700 hover:text-gray-300 transition" :href="route('home.index')">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </Link>
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline">
@@ -30,48 +30,11 @@
               <div class="ml-4 flex items-center md:ml-6">
 
                 <!-- Profile dropdown -->
-                <div class="ml-3 relative">
-                  <div>
-                    <button
-                      @click="toggle"
-                      class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none focus:shadow-solid"
-                      id="user-menu"
-                      aria-label="User menu"
-                      aria-haspopup="true"
-                    >
-                      <img
-                        class="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt
-                      >
-                    </button>
-                  </div>
-                  <transition
-                    enter-active-class="transition ease-out duration-100"
-                    enter-class="transform opacity-0 scale-95"
-                    enter-to-class="transform opacity-100 scale-100"
-                    leave-active-class="transition ease-in duration-75"
-                    leave-class="transform opacity-100 scale-100"
-                    leave-to-class="transform opacity-0 scale-95"
-                  >
-                    <div
-                      v-show="isOpen"
-                      class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg"
-                    >
-                      <div
-                        class="py-1 rounded-md bg-white shadow-xs"
-                        role="menu"
-                        aria-orientation="vertical"
-                        aria-labelledby="user-menu"
-                      >
-
-               <form @submit.prevent="form.post(route('logout'))">
-                <button>logout</button>
-              </form>
-                      </div>
-                    </div>
-                  </transition>
-                </div>
+                 <button class=" text-gray-200 hover:text-gray-300 transition" @click="logout">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </button>
               </div>
             </div>
             <div class="-mr-2 flex md:hidden">
@@ -125,23 +88,14 @@
           <div class="pt-4 pb-3 border-t border-gray-700">
             <div class="flex items-center px-5">
               <div class="flex-shrink-0">
-                <img
-                  class="h-10 w-10 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt
-                >
+                 <button class="text-gray-200 hover:text-gray-300" @click="logout">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </button>
               </div>
-              <!-- <div class="ml-3">
-                <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-                <div class="mt-1 text-sm font-medium leading-none text-gray-400">tom@example.com</div>
-              </div> -->
             </div>
-            <div class="mt-3 px-2">
-              <a
-                href="#"
-                class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Sign out</a>
-            </div>
+            
           </div>
         </div>
       </nav>
@@ -165,6 +119,7 @@
 <script>
 import { Link } from '@inertiajs/inertia-vue3'
 import { useForm } from '@inertiajs/inertia-vue3'
+import { Inertia } from '@inertiajs/inertia'
 
 export default {
   components: {
@@ -178,6 +133,10 @@ export default {
   methods: {
     toggle () {
       this.isOpen = !this.isOpen
+    },
+
+    logout () {
+      Inertia.post(`/logout`)
     }
   }
 
