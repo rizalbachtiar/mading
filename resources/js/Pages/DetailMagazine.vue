@@ -1,7 +1,10 @@
 <template>
 	<div class="h-screen w-screen bg-cover overflow-auto" style="background-image:url('/images/bg-magazine.jpg')">
-        <div class="flex flex-col max-w-6xl mx-auto space-y-2 pt-5">
-            <div class="text-gray-700 text-3xl font-bold text-center">{{ magazine.name }}</div>
+        <div class="flex flex-col lg:max-w-5xl md:max-w-2xl mx-auto space-y-2 pt-5">
+            <div>
+                <Link class="bg-indigo-500 py-2 px-6 rounded-md text-gray-100 hover:shadow-md hover:bg-indigo-700 hover:text-gray-300 transition" :href="route('home.index')">Back</Link>
+            </div>
+            <!-- <div class="text-gray-700 text-3xl font-bold text-center">{{ magazine.name }}</div> -->
             <div class="flex space-x-2">
                 <div class="w-2/12 rounded-md px-3 py-3 shadow bg-white bg-opacity-30 backdrop-filter backdrop-blur space-y-2">
                     <div class="text-center text-xl font-bold">Judul</div>
@@ -9,7 +12,8 @@
                         <li v-for="page in pages"><a class="hover:text-blue-600 transition" href="#" v-on:click="detailContent(page)">{{ page.title }}</a></li>
                     </ul>
                 </div>
-                <div class="w-6/12 flex justify-center bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur py-2 rounded-md shadow">
+                <div class="w-6/12 flex items-center bg-gray-200 bg-opacity-30 backdrop-filter backdrop-blur pt-2 pb-5 rounded-md shadow flex-col space-y-2">
+                    <div class="text-xl font-bold">{{ magazine.name }}</div>
                     <img class="object-cover w-8/12 rounded" :src="'../storage/magazines/' + magazine.image_url">
                 </div>
                 <div class="w-4/12 rounded-md px-4 py-3 shadow space-y-2 bg-white bg-opacity-30 backdrop-filter backdrop-blur">
