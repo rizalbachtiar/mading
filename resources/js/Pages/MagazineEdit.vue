@@ -55,10 +55,10 @@
 						<div v-if="tabs == 2">
 							<table class="w-full">
 								<tbody>
-									<tr v-for="page in pages" class="text-gray-700 border border-gray-400">
+									<tr class="text-gray-700 border border-gray-400">
 										<td class="px-4 py-1 flex items-center justify-between">
-											<a @click="editPage(page)" class="cursor-pointer hover:text-blue-600 transition">Rizal</a>
-											<button class="" @click.prevent="deletePage(`${page.id}`)">
+											<a class="cursor-pointer hover:text-blue-600 transition">No Image</a>
+											<button class="">
 												<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-600 hover:text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
 												</svg>
@@ -96,7 +96,7 @@
                 <form>
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="">
-                                <input type="hidden" id="magazine_id" v-model="formModal.magazine_id">
+                                <input type="text" id="magazine_id" v-model="formModal.magazine_id">
                             <div class="mb-4">
                                 <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
                                 <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="title" v-model="formModal.title">
@@ -139,7 +139,7 @@
                 <form>
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="">
-                                <input type="hidden" id="magazine_id" v-model="formGalery.magazine_id">
+                                <input type="hidden" id="magazine_ids" v-model="formGalery.magazine_id">
                             <div class="mb-4">
                                 <label for="image_url" class="block text-gray-700 text-sm font-bold mb-2">Image</label>
                                 <input type="file" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="image_url" @change="previewImageGalery" @input="formGalery.image_url = $event.target.files[0]">
@@ -241,6 +241,7 @@
 				this.formModal = {
 					title: null,
                     content: null,
+                    magazine_id: this.magazine.id,
 				}
 			},
 
