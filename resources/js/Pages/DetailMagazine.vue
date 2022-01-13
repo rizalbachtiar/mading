@@ -35,9 +35,9 @@
         </div>
             </div>
         </div>
-        <div class="py-2 text-center text-xs text-gray-700 mt-5">
+        <!-- <div class="py-2 text-center text-xs text-gray-700 mt-5">
             Copyright © Shohib Ace
-        </div>
+        </div> -->
     </div>
 
 </template>
