@@ -1,7 +1,7 @@
 <template>
   <div class="w-full pt-6 pb-28 px-10 bg-cover bg-center space-y-10" style="background-image:url('/images/education.jpg')">
     <div class="flex justify-end space-x-2">
-        <Link v-if="user == 'admin'" class="py-2 px-4 bg-blue-500 rounded-xl text-gray-200 hover:bg-blue-600 transition" :href="route('categories.index')">
+        <Link v-if="user == 'admin'" class="py-2 px-4 bg-blue-500 rounded-xl text-gray-200 hover:bg-blue-600 transition" :href="route('magazines.index')">
             Master
         </Link>
         <button class="bg-blue-500 text-gray-200 p-2 rounded-full shadow hover:bg-blue-600 transition" @click="logout">
