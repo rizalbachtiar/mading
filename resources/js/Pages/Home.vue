@@ -54,7 +54,10 @@
   </div>
 
   <!-- footer -->
- <!--  <div class="py-2 text-center text-xs text-gray-400">
+  <!-- <div class="py-2 text-center text-xs text-gray-400">
+      Copyright © Shohib Ace
+  </div>
+  <div class="py-2 text-center text-xs text-gray-400">
       Copyright © Shohib Ace
   </div> -->
 </template>
