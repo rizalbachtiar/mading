@@ -25,4 +25,9 @@ class HomeController extends Controller
             'pages' => $magazine->pages
         ]);
     }
+
+    public function detailContent()
+    {
+        return Inertia::render('DetailContent');
+    }
 }
