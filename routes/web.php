@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailmading', function () {
         return Inertia::render('DetailMading');
     });
+    Route::get('/detail-content', [HomeController::class, 'detailContent'])->name('home.detail-content');
 
     Route::resource('magazines', MagazineController::class);
     Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
