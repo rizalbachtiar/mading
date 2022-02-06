@@ -13,7 +13,7 @@
 
     <div class="w-1/1 md:w-1/3 bg-white rounded-3xl shadow-xl p-5 bg-opacity-10 backdrop-filter backdrop-blur space-y-5">
       <div class="text-3xl md:text-5xl text-center font-bold">
-        Wellcome to Mading Digital Madrasah Ibtidaiyah
+        Welcome to Mading Digital Madrasah Ibtidaiyah
       </div>
       <div class="font-bold text-xs md:text-xl text-center text-gray-700">"Di mana pun saya menemukan tempat untuk duduk dan menulis, di situlah rumah saya". - Mary Tall Mountain</div>
     </div>
