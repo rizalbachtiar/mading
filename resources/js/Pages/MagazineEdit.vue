@@ -96,7 +96,7 @@
                 <form>
                     <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                         <div class="">
-                                <input type="text" id="magazine_id" v-model="formModal.magazine_id">
+                                <input type="hidden" id="magazine_id" v-model="formModal.magazine_id">
                             <div class="mb-4">
                                 <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
                                 <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" id="title" v-model="formModal.title">
