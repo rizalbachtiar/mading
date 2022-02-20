@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Magazine;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class PageController extends Controller
 {
@@ -22,9 +24,11 @@ class PageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Magazine $magazine)
     {
-        //
+        return Inertia::render('MagazineContentCreate', [
+            'magazine' => $magazine
+        ]);
     }
 
     /**
@@ -35,7 +39,8 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Page::create($request->all());
+        return redirect()->route('magazines.edit', $request->magazine_id);
     }
 
     /**
@@ -55,9 +60,11 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit(Page $page)
+    public function edit(Magazine $magazine, Page $page)
     {
-        //
+        return Inertia::render('MagazineContentEdit', [
+            'page' => $page
+        ]);
     }
 
     /**
@@ -69,7 +76,9 @@ class PageController extends Controller
      */
     public function update(Request $request, Page $page)
     {
-        //
+        $page->fill($request->all());
+        $page->save();
+        return redirect()->route('magazines.edit', $request->magazine_id);
     }
 
     /**
@@ -80,6 +89,7 @@ class PageController extends Controller
      */
     public function destroy(Page $page)
     {
-        //
+        $page->delete();
+        return redirect()->back();
     }
 }
