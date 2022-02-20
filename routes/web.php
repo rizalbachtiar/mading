@@ -4,6 +4,7 @@ use App\Http\Controllers\MagazineController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AttachmentController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\LoginController;
@@ -36,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/detailmading', function () {
         return Inertia::render('DetailMading');
     });
-    Route::get('/detail-content', [HomeController::class, 'detailContent'])->name('home.detail-content');
+    // Route::get('/detail-content', [HomeController::class, 'detailContent'])->name('home.detail-content');
 
     Route::resource('magazines', MagazineController::class);
     Route::post('/magazines/{magazine}/update-attachment',[MagazineController::class, 'update'])->name('magazines.update-attachment');
@@ -47,6 +48,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', CategoryController::class);
     Route::post('/categories/{category}/update-attachment',[CategoryController::class, 'update'])->name('categories.update-attachment');
     Route::get('/detail-magazine/{magazine}',[HomeController::class, 'detailMagazine'])->name('home.detail-magazine');
+    Route::get('/detail-magazine/{magazine}/content/{page}', [HomeController::class, 'detailContent'])->name('home.detail-content');
+
+    Route::get('/magazines/{magazine}/content',[PageController::class, 'create'])->name('content.create');
+    Route::post('/magazines/content/store',[PageController::class, 'store'])->name('content.store');
+    Route::get('/magazines/{magazine}/content/{page}',[PageController::class, 'edit'])->name('content.edit');
+    Route::post('/magazines/content/{page}/update',[PageController::class, 'update'])->name('content.update');
+    Route::delete('/magazines/content/{page}',[PageController::class, 'destroy'])->name('content.destroy');
 
     Route::resource('attachments', AttachmentController::class);
 });

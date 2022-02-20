@@ -6,6 +6,7 @@ use App\Models\Magazine;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Page;
 
 class HomeController extends Controller
 {
@@ -26,8 +27,10 @@ class HomeController extends Controller
         ]);
     }
 
-    public function detailContent()
+    public function detailContent(Magazine $magazine, Page $page)
     {
-        return Inertia::render('DetailContent');
+        return Inertia::render('DetailContent', [
+            'page' => $page
+        ]);
     }
 }
